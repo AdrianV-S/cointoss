@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Coin toss</title>
+
+    <style>
+        .wrapper-3d {
+            perspective: 1000px;
+            width: 100px;
+            height: 100px;
+        }
+        .coin {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform .3s;
+            transform-style: preserve-3d;
+        }
+        .coin__front, .coin__back {
+            border-radius: 100%;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: yellow;
+            font-size: 40px;
+        }
+        
+        .coin__back {
+            transform: rotateX(180deg);
+        }
+        .coin--flipped {
+            transform: rotateX(180deg);
+        }
+        @keyframes spin-coin__front {
+            0%{
+                transform: rotateX(0);
+
+            }
+            100%{
+            transform: rotateX(1980deg);
+        }
+        }
+        @keyframes spin-coin__back {
+            0%{
+                transform: rotateX(0);
+
+            }
+            100%{
+            transform: rotateX(2160deg);
+        }
+        }
+    </style>
+</head>
+<body style="background: rgba(0,0,0,0.2);">
+
+<button id="flipButton">Flip!</button>
+
+<div class="wrapper-3d">
+    <div class="coin">
+        <div class="coin__front">
+            1
+        </div>
+        <div class="coin__back">
+            JS
+        </div>
+    </div>
+</div>
+
+
+<script src="coin_toss.js"></script>
+</body>
+</html>
